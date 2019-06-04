@@ -23,8 +23,13 @@ public class PodCastResource {
         this.podcasts = new HashMap<Integer, PodCast>();
         
     }
-    @RequestMapping(value="/inicio" , method=RequestMethod.GET)
-    public ResponseEntity<List<PodCast>> GetPodcastItunes(){
 
+    @RequestMapping(value="/inicio" ,produces = MediaType.APPLICATION_JSON_VALUE , method=RequestMethod.GET)
+    public ResponseEntity<List<PodCast>> GetPodcastItunes(){
+        final String uri = "https://itunes.apple.com/lookup?id=909253&entity=album";
+        
+        RestTemplate restTemplate = new RestTemplate();
+        EmployeeListVO result = restTemplate.getForObject(uri, EmployeeListVO.class);
+        System.out.println(result)
     }
 }
