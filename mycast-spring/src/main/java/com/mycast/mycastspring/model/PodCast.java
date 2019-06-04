@@ -1,46 +1,43 @@
 package com.mycast.mycastspring.model;
 
-/**
- * PodCast
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity // This tells Hibernate to make a table out of this class
 public class PodCast {
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
 
-    private boolean favorite;
-    private boolean history;
-    private boolean later;
-    private boolean follow;
+    private String name;
 
-    public boolean isFavorite() {
-        return favorite;
-    }
+    private String email;
 
-    public boolean isFollow() {
-        return follow;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setFollow(boolean follow) {
-        this.follow = follow;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public boolean isLater() {
-        return later;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setLater(boolean later) {
-        this.later = later;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public boolean isHistory() {
-        return history;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setHistory(boolean history) {
-        this.history = history;
-    }
-
-    public void setFavorite(boolean favorite) {
-        this.favorite = favorite;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 
 }
