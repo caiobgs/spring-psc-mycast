@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
 @Table(name = "podcasts")
 public class PodCast {
 	@Id
@@ -16,7 +16,6 @@ public class PodCast {
 
     private String name;
 	private boolean favorite;
-	private boolean history;
 	private boolean later;
 	private boolean follow;
 
@@ -38,14 +37,6 @@ public class PodCast {
 
 	public void setLater(boolean later) {
 		this.later = later;
-	}
-
-	public boolean isHistory() {
-		return history;
-	}
-
-	public void setHistory(boolean history) {
-		this.history = history;
 	}
 
 	public boolean isFavorite() {

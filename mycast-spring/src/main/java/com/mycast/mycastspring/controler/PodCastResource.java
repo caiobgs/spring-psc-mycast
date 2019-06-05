@@ -55,4 +55,28 @@ public class PodCastResource {
 		return podcastRepository.findAllFavorite();
 		
 	}
+
+	@GetMapping(path="/favorite/update")
+	public @ResponseBody void updateFavorite(@RequestParam String name
+	, @RequestParam boolean favorite) {
+		
+		 podcastRepository.UpdatePodcastFavotite(name, favorite);
+		
+	}
+
+	@GetMapping(path="/later/update")
+	public @ResponseBody void updateLater(@RequestParam String name
+	, @RequestParam boolean later) {
+		
+		 podcastRepository.UpdatePodcastLater(name, later);
+		
+	}
+
+	@GetMapping(path="/follow/update")
+	public @ResponseBody void updateFollow(@RequestParam String name
+	, @RequestParam boolean follow) {
+		
+		 podcastRepository.UpdatePodcastFollow(name, follow);
+		
+	}
 }
