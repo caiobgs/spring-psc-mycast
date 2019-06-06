@@ -4,6 +4,7 @@ import com.mycast.mycastspring.PodCastRepository;
 import com.mycast.mycastspring.model.PodCast;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -56,7 +57,7 @@ public class PodCastResource {
 		
 	}
 
-	@GetMapping(path="/favorite/update")
+	@PostMapping(path="/favorite/update")
 	public @ResponseBody void updateFavorite(@RequestParam String name
 	, @RequestParam boolean favorite) {
 		
@@ -64,7 +65,7 @@ public class PodCastResource {
 		
 	}
 
-	@GetMapping(path="/later/update")
+	@PostMapping(path="/later/update")
 	public @ResponseBody void updateLater(@RequestParam String name
 	, @RequestParam boolean later) {
 		
@@ -72,7 +73,7 @@ public class PodCastResource {
 		
 	}
 
-	@GetMapping(path="/follow/update")
+	@PostMapping(path="/follow/update")
 	public @ResponseBody void updateFollow(@RequestParam String name
 	, @RequestParam boolean follow) {
 		
