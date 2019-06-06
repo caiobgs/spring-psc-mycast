@@ -5,6 +5,7 @@ import com.mycast.mycastspring.model.PodCast;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,29 +59,25 @@ public class PodCastResource {
 		
 	}
 
-	@PostMapping(path="/favorite/update")
+	@PutMapping(path="/favorite/update")
 	public @ResponseBody void updateFavorite(@RequestBody PodCast podcast) {
 
-		
-		
 		podcastRepository.UpdatePodcastFavotite(podcast.getName(), podcast.isFavorite());
 		
 	}	
 	
 
-	@PostMapping(path="/later/update")
-	public @ResponseBody void updateLater(@RequestParam String name
-	, @RequestParam boolean later) {
+	@PutMapping(path="/later/update")
+	public @ResponseBody void updateLater(@RequestBody PodCast podcast) {
 		
-		 podcastRepository.UpdatePodcastLater(name, later);
+		 podcastRepository.UpdatePodcastLater(podcast.getName(), podcast.isLater());
 		
 	}
 
-	@PostMapping(path="/follow/update")
-	public @ResponseBody void updateFollow(@RequestParam String name
-	, @RequestParam boolean follow) {
+	@PutMapping(path="/follow/update")
+	public @ResponseBody void updateFollow(@RequestBody PodCast podcast) {
 		
-		 podcastRepository.UpdatePodcastFollow(name, follow);
+		 podcastRepository.UpdatePodcastFollow(podcast.getName(), podcast.isFollow());
 		
 	}
 }
